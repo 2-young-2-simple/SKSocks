@@ -659,10 +659,10 @@ protected:
 			if (isV6)
 			{
 				client_connect_requestv6 * connect_requestv6 = (client_connect_requestv6 *)buffer;
-				sprintf_s(theRemAddr, "%u:%u:%u:%u:%u:%u:%u:%u", (unsigned)(unsigned short)connect_request->addr[0], (unsigned)(unsigned short)connect_request->addr[1],
-					(unsigned)(unsigned short)connect_request->addr[2], (unsigned)(unsigned short)connect_request->addr[3],
-					(unsigned)(unsigned short)connect_request->addr[4], (unsigned)(unsigned short)connect_request->addr[5],
-					(unsigned)(unsigned short)connect_request->addr[6], (unsigned)(unsigned short)connect_request->addr[7]);
+				sprintf_s(theRemAddr, "%u:%u:%u:%u:%u:%u:%u:%u", (unsigned)(unsigned short)connect_requestv6->addr[0], (unsigned)(unsigned short)connect_requestv6->addr[1],
+					(unsigned)(unsigned short)connect_requestv6->addr[2], (unsigned)(unsigned short)connect_requestv6->addr[3],
+					(unsigned)(unsigned short)connect_requestv6->addr[4], (unsigned)(unsigned short)connect_requestv6->addr[5],
+					(unsigned)(unsigned short)connect_requestv6->addr[6], (unsigned)(unsigned short)connect_requestv6->addr[7]);
 			}
 			else
 				sprintf_s(theRemAddr, "%u.%u.%u.%u", (unsigned)(unsigned char)connect_request->addr[0], (unsigned)(unsigned char)connect_request->addr[1],
@@ -737,7 +737,7 @@ protected:
 				connect_response.ver = 0x5;
 				connect_response.rep = 0x00;  //连接成功标志
 				connect_response.rsv = 0x00;
-				connect_response.type = 0x01;
+				connect_response.type = 0x04;
 
 				memcpy(buffer1, &connect_response, sizeof(connect_response));//服务端回应数据 设置版本号与结果位，ip与端口号未使用
 				if (send(theSock, buffer1, sizeof(server_connect_responsev6), 0) < 0)break;
