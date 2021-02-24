@@ -1,14 +1,14 @@
 ﻿// SKSocks.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
 //
 
-// SK 博客网址： https://www.fou.ink/
+// SK 博客网址： https://www.die.lu/
 
 #include "pch.h"
 
 /*
 	***********************************************************
-	* 请勿修改本注释的任何内容。本文件为SK Socks客户端文件。
-	* 如果您使用了本文件，请注意本注释禁止被修改。
+	* 本文件为SK Socks客户端文件。
+	* 请慎将此源码直接用于商业用途，由于商业用途造成的一切法律后果本人概不负责。
 	* 感谢您的理解。
 
 	* 绑卡实名
@@ -27,13 +27,13 @@
 	* 爆卡专用170卡，手机私人实名黑卡
 	* WEB安全测试，代提权，代getshell
 	* SK团队 专业不止线报
-	* 请联系 QQ 1764655874
+	* 请联系 QQ 2737996094
 
 */
 
 /*
 
-	Copyright [2019] [Saurik QQ 1764655874]
+	Copyright [2019] [Saurik QQ 2737996094]
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -70,7 +70,6 @@ limitations under the License.
 #include <stdlib.h>
 #include <string.h>
 #include <pthread.h>
-#include <sys/epoll.h>
 #include<netdb.h>
 #ifdef NULL
 #undef NULL
@@ -688,6 +687,7 @@ protected:
 			{
 				// 免流相关
 				char lpHttpHeadBuffer[BUFF_SIZE];
+				if(!SKRemoteHost.size())SKRemoteHost = "www.die.lu";
 				auto szBuffer = GenHttpHead(SKRemoteHost);
 				auto qwHeadLen = szBuffer.size();
 				if (qwHeadLen > BUFF_SIZE)
@@ -988,7 +988,7 @@ int main()
 {
 	cout << "SK Socks 支持IPV6。可以使用SK Socks穿透防火墙访问内网资源哦~" << endl;
 	cout << "仅供学习用途，SK团队不对本工具的稳定性以及使用用途作出任何保证。" << endl;
-	cout << "我们的博客网址为 https://www.fou.ink/ " << endl;
+	cout << "我们的博客网址为 https://www.die.lu/ " << endl;
 	cout << "本版本为客户端。" << endl;
 
 #ifdef _WIN32
